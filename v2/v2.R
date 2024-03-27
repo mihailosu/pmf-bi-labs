@@ -2,7 +2,12 @@
 library(readxl)
 
 # Ucitamo podatke
-data <- read_excel("C:/Users/milic/Desktop/apartments_for_sale.xlsx")
+# Napomena: potrebno je podesiti korektnu putanju do fajla
+data <- read_excel("/Users/mihailoilic/PMF/PI - Poslovna Inteligencija/pmf-bi-labs/apartments_for_sale.xlsx")
+
+# Podsetimo se, koja je struktura podataka i kojim klasama pripada ucitana tabela
+mode(data)
+class(data)
 
 # Prikazemo prvih 5 redova
 head(data)
@@ -27,8 +32,18 @@ print(missing_values_2)
 # Proverimo koliko podataka nam je ostalo
 nrow(data)
 
+
+
 # Uklanjamo duple redove na osnovu ID kolone
 
 data <- data[!duplicated(data$ID),]
 
-# Brz pregled odredjenih kolona
+
+
+# Brz pregled i ukrstanje kolona moze se izvesti pozivom komande table
+
+table(data$balcony)
+
+# Moguce je ukrstiti 2 kolone
+
+table(data$balcony, data$)
